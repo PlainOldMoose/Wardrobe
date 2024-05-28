@@ -1,5 +1,7 @@
 package me.plainoldmoose.wardrobe;
 
+import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,19 +17,24 @@ public class GuiListener implements Listener {
         if (player.hasMetadata("OpenedMenu")) {
             event.setCancelled(true);
 
-            if (event.getSlot() == 11) {
+            if (event.getSlot() == 47) {
                 player.closeInventory();
+                player.playSound(player.getLocation(), Sound.ITEM_ARMOR_EQUIP_DIAMOND,29 , 29);
+                player.sendMessage(ChatColor.RED + "Equipped loadout A");
             }
-            else if (event.getSlot() == 13) {
+            else if (event.getSlot() == 49) {
                 player.closeInventory();
+                player.playSound(player.getLocation(), Sound.ITEM_ARMOR_EQUIP_DIAMOND,29 , 29);
+                player.sendMessage(ChatColor.GREEN + "Equipped loadout B");
             }
 
-            else if (event.getSlot() == 15) {
+            else if (event.getSlot() == 51) {
                 player.closeInventory();
+                player.playSound(player.getLocation(), Sound.ITEM_ARMOR_EQUIP_DIAMOND,29 , 29);
+                player.sendMessage(ChatColor.BLUE + "Equipped loadout C");
             }
         }
     }
-
     @EventHandler
     public void onClose(InventoryCloseEvent event) {
         Player player = (Player) event.getPlayer();
