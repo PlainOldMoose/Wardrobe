@@ -40,6 +40,6 @@ public class GuiListener implements Listener {
         Player player = (Player) event.getPlayer();
 
         if (player.hasMetadata("OpenedMenu"))
-            player.removeMetadata("OpenedMnu", Wardrobe.getInstance());
+            player.removeMetadata("OpenedMenu", Wardrobe.getInstance());
     }
 }
