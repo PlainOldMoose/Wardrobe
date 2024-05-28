@@ -1,0 +1,4 @@
+name: Wardrobe
+version: '${project.version}'
+main: me.plainoldmoose.wardrobe.Wardrobe
+api-version: '1.20'
