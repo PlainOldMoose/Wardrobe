@@ -24,11 +24,36 @@ public class ChestCommand implements CommandExecutor {
 
         Player player = (Player) commandSender;
 
-        Inventory inventory = Bukkit.createInventory(player, 9 * 6, ChatColor.DARK_PURPLE + "EnderChest");
+        Inventory inventory = Bukkit.createInventory(player, 9 * 6, ChatColor.DARK_PURPLE + "EnderChest");        ItemStack HeadSlot1 = new ItemStack(Material.DIAMOND_HELMET);
 
-        inventory.setItem(11, new ItemStack(Material.DIAMOND));
+        for (int i = 0; i < 54; i++) {
+            inventory.setItem(i, new ItemStack(Material.RED_STAINED_GLASS_PANE));
+        }
+        inventory.setItem(11, null);
+        inventory.setItem(13, null);
+        inventory.setItem(15, null);
+
+        inventory.setItem(20, null);
+        inventory.setItem(22, null);
+        inventory.setItem(24, null);
+
+        inventory.setItem(29, null);
+        inventory.setItem(31, null);
+        inventory.setItem(33, null);
+
+        inventory.setItem(38, null);
+        inventory.setItem(40, null);
+        inventory.setItem(42, null);
+
+        ItemStack selectorActive = new ItemStack(Material.ENDER_EYE);
+        ItemStack selectorInactive = new ItemStack(Material.ENDER_PEARL);
+
+        inventory.setItem(47, selectorActive);
+        inventory.setItem(49, selectorInactive);
+        inventory.setItem(51, selectorInactive);
 
         player.openInventory(inventory);
+        //PersistentDataContainer container = inventory.getContents();
         player.setMetadata("OpenedChest", new FixedMetadataValue(Wardrobe.getInstance(), inventory));
 
         return true;
