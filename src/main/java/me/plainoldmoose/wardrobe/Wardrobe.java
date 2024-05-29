@@ -6,6 +6,7 @@ public final class Wardrobe extends JavaPlugin {
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(new GuiListener(), this);
+        getServer().getPluginManager().registerEvents(new ChestListener(), this);
         getCommand("gui").setExecutor(new GuiCommand());
         getCommand("chest").setExecutor(new ChestCommand());
     }
