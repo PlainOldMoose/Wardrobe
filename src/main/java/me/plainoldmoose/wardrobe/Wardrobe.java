@@ -1,18 +1,20 @@
 package me.plainoldmoose.wardrobe;
 
-import org.bukkit.plugin.java.JavaPlugin;
+import org.mineacademy.fo.menu.button.ButtonReturnBack;
+import org.mineacademy.fo.plugin.SimplePlugin;
+import org.mineacademy.fo.remain.CompMaterial;
 
-public final class Wardrobe extends JavaPlugin {
+public final class Wardrobe extends SimplePlugin {
     @Override
-    public void onEnable() {
-        getServer().getPluginManager().registerEvents(new GuiListener(), this);
-        getServer().getPluginManager().registerEvents(new ChestListener(), this);
+    public void onPluginStart() {
+        ButtonReturnBack.setMaterial(CompMaterial.BARRIER);
+
         getCommand("gui").setExecutor(new GuiCommand());
         getCommand("chest").setExecutor(new ChestCommand());
     }
 
     @Override
-    public void onDisable() {
+    public void onPluginStop() {
     }
 
     public static Wardrobe getInstance() {
